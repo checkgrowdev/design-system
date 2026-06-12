@@ -1,0 +1,102 @@
+/* ========================================================================
+   Checkgrow Design System — FOUNDATION
+   Shared tokens (CSS variables), Geist font wiring, base resets.
+   This file is required by BOTH Institutional and Platform flavors.
+   ======================================================================== */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 9%;
+
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 9%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 228 84% 95%;             /* #E4EAFD */
+    --accent-foreground: 232 60% 30%;
+    --accent-solid: 232 100% 80%;      /* #9BA6FF */
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 232 100% 80%;
+
+    --radius: 0.625rem;
+
+    /* Brand */
+    --cg-soft: #E4EAFD;
+    --cg-solid: #9BA6FF;
+  }
+
+  .dark {
+    --background: 0 0% 4%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 64%;
+
+    --accent: 232 40% 22%;
+    --accent-foreground: 228 84% 95%;
+    --accent-solid: 232 100% 80%;
+
+    --destructive: 0 62% 40%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 232 100% 80%;
+  }
+
+  * { @apply border-border; }
+  html { font-family: "Geist", ui-sans-serif, system-ui, sans-serif; }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "ss01", "cv11";
+  }
+  code, pre, kbd { font-family: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace; }
+
+  ::selection { background: var(--cg-soft); color: hsl(var(--foreground)); }
+}
+
+/* ---- Utility helpers shared across flavors ---- */
+
+@layer utilities {
+  .cg-soft-bg     { background-color: var(--cg-soft); }
+  .cg-solid-bg    { background-color: var(--cg-solid); }
+  .cg-soft-text   { color: var(--cg-solid); }
+  .cg-aurora      { background-image:
+                      radial-gradient(40% 50% at 20% 10%, var(--cg-soft) 0%, transparent 60%),
+                      radial-gradient(40% 50% at 80% 30%, rgba(155,166,255,.2) 0%, transparent 60%); }
+  .cg-focus-ring  { @apply outline-none ring-2 ring-offset-2 ring-offset-background;
+                    --tw-ring-color: var(--cg-solid); }
+}
