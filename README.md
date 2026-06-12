@@ -1,2 +1,2 @@
-# design_system
+# Design System
 Design System from Checkgrow
